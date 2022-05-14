@@ -6,9 +6,11 @@ class SignUpPage extends React.Component {
     return (
       <div>
         <h1>Sign Up</h1>
-        <input placeholder="username" />
-        <input placeholder="email" />
-      </div>
+        <label htmlFor={"username"} >Username</label>
+        <input id="username" placeholder="username" />
+        <label htmlFor={"email"}>E-mail</label>
+        <input id="email" placeholder="email" />
+      </div >
     )
   }
 }
