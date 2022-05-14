@@ -1,13 +1,30 @@
 import SignUpPage from "./SignUpPage"
-import { render, render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 
-it("has header", () => {
+describe('Sign Up Page', () => {
 
-  render(<SignUpPage />);
-  const header = screen.queryByRole("heading", {
-    name: "Sign Up"
-  });
-  expect(header).toBeInTheDocument();
+  describe('Layout', () => {
+    it("has header", () => {
+      render(<SignUpPage />);
+      const header = screen.queryByRole("heading", {
+        name: "Sign Up"
+      });
+      expect(header).toBeInTheDocument();
+    })
 
+    it('has username input', () => {
+      const { container } = render(<SignUpPage />);
+      // const input = container.querySelector("input");
+      const input = screen.getByPlaceholderText("username");
+      expect(input).toBeInTheDocument();
+
+    })
+    it('has email input', () => {
+      const { container } = render(<SignUpPage />);
+      // const inputs = container.querySelectorAll("input");
+      const input = screen.getByPlaceholderText("email");
+      expect(input).toBeInTheDocument();
+    })
+  })
 
 })
